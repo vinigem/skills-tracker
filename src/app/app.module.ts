@@ -22,7 +22,8 @@ import { AddSkillComponent } from './skill/add-skill.component';
 
 @NgModule({
   declarations: [
-    AppComponent, AlertComponent, OverlayComponent, DashboardComponent, AddEmployeeComponent, UpdateEmployeeComponent, AddSkillComponent
+    AppComponent, AlertComponent, OverlayComponent, DashboardComponent, AddEmployeeComponent,
+    UpdateEmployeeComponent, AddSkillComponent
   ],
   imports: [
     BrowserModule, RoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule
