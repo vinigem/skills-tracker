@@ -5,6 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { RoutingModule } from './routing.module';
+import { HttpService } from './http.service';
 
 import { CommonInterceptor } from './interceptors/common.interceptor';
 
@@ -16,14 +17,12 @@ import { AlertService } from './alert/alert.service';
 import { OverlayService } from './overlay/overlay.service';
 import { OverlayComponent } from './overlay/overlay.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AddEmployeeComponent } from './employee/add-employee.component';
-import { UpdateEmployeeComponent } from './employee/update-employee.component';
-import { AddSkillComponent } from './skill/add-skill.component';
+import { EmployeeComponent } from './employee/employee.component';
+import { SkillComponent } from './skill/skill.component';
 
 @NgModule({
   declarations: [
-    AppComponent, AlertComponent, OverlayComponent, DashboardComponent, AddEmployeeComponent,
-    UpdateEmployeeComponent, AddSkillComponent
+    AppComponent, AlertComponent, OverlayComponent, DashboardComponent, EmployeeComponent, SkillComponent
   ],
   imports: [
     BrowserModule, RoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule
@@ -31,7 +30,7 @@ import { AddSkillComponent } from './skill/add-skill.component';
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
         { provide: HTTP_INTERCEPTORS, useClass: CommonInterceptor, multi: true },
-        AlertService, OverlayService
+        AlertService, OverlayService, HttpService
   ],
   bootstrap: [AppComponent]
 })

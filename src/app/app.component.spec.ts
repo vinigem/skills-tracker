@@ -4,6 +4,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { AlertComponent } from './alert/alert.component';
 import { AlertService } from './alert/alert.service';
+import { OverlayComponent } from './overlay/overlay.component';
+import { OverlayService } from './overlay/overlay.service';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -12,10 +14,10 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent, AlertComponent
+        AppComponent, AlertComponent, OverlayComponent
       ],
       providers: [
-        AlertService
+        AlertService, OverlayService
       ],
       imports: [ RouterTestingModule.withRoutes([]) ]
     }).compileComponents();
