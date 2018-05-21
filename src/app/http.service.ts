@@ -3,10 +3,12 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 
-const ADD_SKIL_URL = 'https://skills-tracker-server.herokuapp.com/skill/add-skill';
+const ADD_SKILL_URL = 'https://skills-tracker-server.herokuapp.com/skill/add-skill';
 const UPDATE_SKILL_URL = 'https://skills-tracker-server.herokuapp.com/skill/update-skill';
 const DELETE_SKILL_URL = 'https://skills-tracker-server.herokuapp.com/skill/delete-skill';
 const VIEW_ALL_SKILLS_URL = 'https://skills-tracker-server.herokuapp.com/skill/view-all-skills';
+
+const ADD_ASSOCIATE_URL = 'https://skills-tracker-server.herokuapp.com/associate/add-associate';
 
 @Injectable()
 export class HttpService {
@@ -18,7 +20,7 @@ export class HttpService {
     }
 
     addSkill(skill: any): Observable<any> {
-        return this.httpClient.post(ADD_SKIL_URL, skill, {responseType: 'text'});
+        return this.httpClient.post(ADD_SKILL_URL, skill, {responseType: 'text'});
     }
 
     updateSkill(skill: any): Observable<any> {
@@ -27,6 +29,10 @@ export class HttpService {
 
     deleteSkill(skillId: number): Observable<any> {
         return this.httpClient.post(DELETE_SKILL_URL, skillId, {responseType: 'text'});
+    }
+
+    addAssociate(associate: any): Observable<any> {
+        return this.httpClient.post(ADD_ASSOCIATE_URL, associate, {responseType: 'text'});
     }
    
 
