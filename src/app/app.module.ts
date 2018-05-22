@@ -17,12 +17,12 @@ import { AlertService } from './alert/alert.service';
 import { OverlayService } from './overlay/overlay.service';
 import { OverlayComponent } from './overlay/overlay.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EmployeeComponent } from './employee/employee.component';
+import { AssociateComponent } from './associate/associate.component';
 import { SkillComponent } from './skill/skill.component';
 
 @NgModule({
   declarations: [
-    AppComponent, AlertComponent, OverlayComponent, DashboardComponent, EmployeeComponent, SkillComponent
+    AppComponent, AlertComponent, OverlayComponent, DashboardComponent, AssociateComponent, SkillComponent
   ],
   imports: [
     BrowserModule, RoutingModule, HttpClientModule, ReactiveFormsModule, FormsModule

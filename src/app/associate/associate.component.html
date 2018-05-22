@@ -1,7 +1,7 @@
 <div class="">
-    <h2 class="text-center">Add New Employee</h2>
+    <h2 class="text-center">Add New Associate</h2>
 
-    <form [formGroup]="employeeForm" (ngSubmit)="saveEmployee()">
+    <form [formGroup]="associateForm" (ngSubmit)="saveAssociate()">
       <div class="form-inline row form-group">
         <div class="col-xs-12 col-sm-12">  
           <!-- Column 1 -->
@@ -22,6 +22,11 @@
               <label class="col-xs-12 col-sm-4 control-label-required">Mobile:</label>
               <input type="tel" class="form-control" formControlName="mobile">
             </div>
+            <div class="row row-margin" [ngClass]="displayFieldCss('gender')">
+              <label class="col-xs-12 col-sm-4 control-label-required">Gender:</label>
+              <label class="form-control radio"> <input type="radio" formControlName="gender" value="F"> Female </label>
+              <label class="form-control radio"> <input type="radio" formControlName="gender" value="M"> Male </label>
+            </div>
           </div>
 
           <!-- Column 2 -->
@@ -34,25 +39,25 @@
             <div class="col-xs-12 col-sm-3 row-margin" [ngClass]="displayFieldCss('status')">
               <div class="col-xs-3 col-sm-12 control-label-required"><strong>Status</strong></div>
               <div class="col-xs-3 col-sm-12 status status-green" (click)="setStatus('G')"
-                [class.active-box]="employeeForm.controls['status'].value == 'G'" >Green</div>
+                [class.active-box]="associateForm.controls['status'].value == 'G'" >Green</div>
               
               <div class="col-xs-3 col-sm-12 status status-blue" (click)="setStatus('B')"
-                [class.active-box]="employeeForm.controls['status'].value == 'B'">Blue</div>
+                [class.active-box]="associateForm.controls['status'].value == 'B'">Blue</div>
 
               <div class="col-xs-3 col-sm-12 status status-red" (click)="setStatus('R')"
-                [class.active-box]="employeeForm.controls['status'].value == 'R'">Red</div>
+                [class.active-box]="associateForm.controls['status'].value == 'R'">Red</div>
             </div>
 
             <div class="col-xs-12 col-sm-3 row-margin" [ngClass]="displayFieldCss('level')">
               <div class="col-xs-3 col-sm-12 control-label-required"><strong>Level</strong></div>
               <div class="col-xs-3 col-sm-12 level level-1" (click)="setLevel('L1')"
-                [class.active-box]="employeeForm.controls['level'].value == 'L1'">L1</div>
+                [class.active-box]="associateForm.controls['level'].value == 'L1'">L1</div>
 
               <div class="col-xs-3 col-sm-12 level level-2" (click)="setLevel('L2')"
-                [class.active-box]="employeeForm.controls['level'].value == 'L2'">L2</div>
+                [class.active-box]="associateForm.controls['level'].value == 'L2'">L2</div>
 
               <div class="col-xs-3 col-sm-12 level level-3" (click)="setLevel('L3')"
-                [class.active-box]="employeeForm.controls['level'].value == 'L3'">L3</div>
+                [class.active-box]="associateForm.controls['level'].value == 'L3'">L3</div>
             </div>  
           </div>
 
@@ -94,7 +99,7 @@
       <div class="row form-group text-center">
         <button class="fixed-width-btn btn btn-default" (click)="reset()">Reset</button>
         <button class="fixed-width-btn btn btn-default" (click)="reset()">Cancel</button>
-        <button type="submit" class="fixed-width-btn btn btn-primary" [disabled]="!employeeForm.valid">Save</button>
+        <button type="submit" class="fixed-width-btn btn btn-primary" [disabled]="!associateForm.valid">Save</button>
       </div>
 
     </form>

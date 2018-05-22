@@ -1,3 +1,38 @@
-<p>
-  dashboard works!
-</p>
+<div class="">
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Pic</th>
+          <th>Status</th>
+          <th>Search By Name</th>
+          <th>Search By Associate ID</th>
+          <th>Search By Email ID</th>
+          <th>Search My Mobile No</th>
+          <th>Search By Strong Skills</th>
+          <th> <button class="btn btn-default" routerLink="/associate">Add New Associate</button> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let associate of associates">
+          <th><img [src]="associate.pic" class="pic-thumb" *ngIf="associate.pic" /></th>
+          <th>
+            <div class="status-thumb" [class.status-green]="associate.status == 'G'"
+              [class.status-blue]="associate.status == 'B'" [class.status-red]="associate.status == 'R'" ></div> </th>
+          <th>{{ associate.name }}</th>
+          <th>{{ associate.associateId }}</th>
+          <th>{{ associate.email }}</th>
+          <th>{{ associate.mobile }}</th>
+          <th>{{ associate.strength }}</th>
+          <th>
+            <button class="btn btn-primary" [routerLink]="['/associate', associate.associateId]"><i class="fa fa-edit"></i></button>
+            <button class="btn btn-danger" (click)="editAssociate()"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-success" [routerLink]="['/associate' , associate.associateId, 'view']"><i class="fa fa-eye"></i></button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
