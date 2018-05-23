@@ -42,25 +42,25 @@
             
             <div class="col-xs-12 col-sm-3 row-margin" [ngClass]="displayFieldCss('status')">
               <div class="col-xs-3 col-sm-12 control-label-required"><strong>Status</strong></div>
-              <div class="col-xs-3 col-sm-12 status status-green" (click)="viewOnly ? return : setStatus('G')"
+              <div class="col-xs-3 col-sm-12 status status-green" (click)="!viewOnly && setStatus('G')"
                 [class.active-box]="associateForm.controls['status'].value == 'G'" >Green</div>
               
-              <div class="col-xs-3 col-sm-12 status status-blue" (click)="viewOnly ? return : setStatus('B')"
+              <div class="col-xs-3 col-sm-12 status status-blue" (click)="!viewOnly && setStatus('B')"
                 [class.active-box]="associateForm.controls['status'].value == 'B'">Blue</div>
 
-              <div class="col-xs-3 col-sm-12 status status-red" (click)="viewOnly ? return : setStatus('R')"
+              <div class="col-xs-3 col-sm-12 status status-red" (click)="!viewOnly && setStatus('R')"
                 [class.active-box]="associateForm.controls['status'].value == 'R'">Red</div>
             </div>
 
             <div class="col-xs-12 col-sm-3 row-margin" [ngClass]="displayFieldCss('level')">
               <div class="col-xs-3 col-sm-12 control-label-required"><strong>Level</strong></div>
-              <div class="col-xs-3 col-sm-12 level level-1" (click)="viewOnly ? return : setLevel('L1')"
+              <div class="col-xs-3 col-sm-12 level level-1" (click)="!viewOnly && setLevel('L1')"
                 [class.active-box]="associateForm.controls['level'].value == 'L1'">L1</div>
 
-              <div class="col-xs-3 col-sm-12 level level-2" (click)="viewOnly ? return : setLevel('L2')"
+              <div class="col-xs-3 col-sm-12 level level-2" (click)="!viewOnly && setLevel('L2')"
                 [class.active-box]="associateForm.controls['level'].value == 'L2'">L2</div>
 
-              <div class="col-xs-3 col-sm-12 level level-3" (click)="viewOnly ? return : setLevel('L3')"
+              <div class="col-xs-3 col-sm-12 level level-3" (click)="!viewOnly && setLevel('L3')"
                 [class.active-box]="associateForm.controls['level'].value == 'L3'">L3</div>
             </div>  
           </div>
