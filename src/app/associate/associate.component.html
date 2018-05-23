@@ -37,7 +37,7 @@
           <div class="col-xs-12 col-sm-4">
             <div class="col-xs-12 col-sm-6 row-margin">
               <input type="file" accept="image/*" #picUpload name="picUpload" (change)="previewProfilePic($event)"/>
-              <img [src]="localUrl" class="profile-pic hand" (click)="viewOnly ? return : picUpload.click()"/>
+              <img [src]="localUrl" class="profile-pic hand" (click)="!viewOnly && picUpload.click()"/>
             </div>
             
             <div class="col-xs-12 col-sm-3 row-margin" [ngClass]="displayFieldCss('status')">
