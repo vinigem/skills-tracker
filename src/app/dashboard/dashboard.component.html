@@ -1,4 +1,53 @@
 <div class="">
+  <h2 class="text-center">Search Associate</h2>
+
+  <div class="skill-count-container">
+    <div class="skill-count-item" *ngFor="let skillCount of skillsCount" [style.width.%]="skillCount.count" [style.background]="getRandomColor()" >
+      <div class="vertical-text">{{ skillCount.name }}</div>
+    </div>
+  </div>
+  <div class="dashboard-container">
+    <div class="dashboard-item">
+      {{ dashboardData.totalAssociates }} 
+      <p>Registered Associates</p>
+    </div>
+    <div class="dashboard-item">
+      {{ dashboardData.femaleAssociates }}%
+      <p>Female Associates</p>
+    </div>
+    <div class="dashboard-item">
+      {{ dashboardData.maleAssociates }}%
+      <p>Male Associates</p>
+    </div>
+    <div class="dashboard-item">
+      {{ dashboardData.fresherAssociates }}
+      <p>Associates Fresher</p>
+    </div>
+    <div class="dashboard-item">
+      {{ dashboardData.ratedAssociates }}
+      <p>Associates Rated</p>
+    </div>
+    <div class="dashboard-item">
+      {{ dashboardData.ratedFemaleAssociates }}
+      <p>Female Associates Rated</p>
+    </div>
+    <div class="dashboard-item">
+      {{ dashboardData.ratedMaleAssociates }}
+      <p>Male Associates Rated</p>
+    </div>
+    <div class="dashboard-item">
+      {{ dashboardData.l1Associates}}%
+      <p>L1 Associates</p>
+    </div>
+    <div class="dashboard-item">
+      {{ dashboardData.l2Associates}}%
+      <p>L2 Associates</p>
+    </div>
+    <div class="dashboard-item">
+      {{ dashboardData.l3Associates}}%
+      <p>L3 Associates</p>
+    </div>
+  </div>
 
   <div class="table-responsive">
     <table class="table table-bordered table-striped">
@@ -6,16 +55,26 @@
         <tr>
           <th>Pic</th>
           <th>Status</th>
-          <th>Search By Name</th>
-          <th>Search By Associate ID</th>
-          <th>Search By Email ID</th>
-          <th>Search My Mobile No</th>
-          <th>Search By Strong Skills</th>
+          <th><input type="text" placeholder="Search By Name" class="form-control" #nameFilter
+            (input)="filter(nameFilter.value, idFilter.value, emailFilter.value, mobileFilter.value, strengthFilter.value)"> </th>
+          
+          <th><input type="text" placeholder="Search By Associate ID" class="form-control" #idFilter
+            (input)="filter(nameFilter.value, idFilter.value, emailFilter.value, mobileFilter.value, strengthFilter.value)"></th>
+          
+          <th><input type="text" placeholder="Search By Email ID" class="form-control" #emailFilter
+            (input)="filter(nameFilter.value, idFilter.value, emailFilter.value, mobileFilter.value, strengthFilter.value)"></th>
+          
+          <th><input type="text" placeholder="Search My Mobile No" class="form-control" #mobileFilter
+            (input)="filter(nameFilter.value, idFilter.value, emailFilter.value, mobileFilter.value, strengthFilter.value)"></th>
+          
+          <th><input type="text" placeholder="Search By Strong Skills" class="form-control" #strengthFilter
+            (input)="filter(nameFilter.value, idFilter.value, emailFilter.value, mobileFilter.value, strengthFilter.value)"></th>
+          
           <th> <button class="btn btn-default" routerLink="/associate">Add New Associate</button> </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let associate of associates">
+        <tr *ngFor="let associate of filteredAssociates">
           <th><img [src]="associate.pic" class="pic-thumb" *ngIf="associate.pic" /></th>
           <th>
             <div class="status-thumb" [class.status-green]="associate.status == 'G'"
@@ -27,7 +86,7 @@
           <th>{{ associate.strength }}</th>
           <th>
             <button class="btn btn-primary" [routerLink]="['/associate', associate.associateId]"><i class="fa fa-edit"></i></button>
-            <button class="btn btn-danger" (click)="editAssociate()"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-danger" (click)="deleteAssociate(associate.associateId)"><i class="fa fa-trash"></i></button>
             <button class="btn btn-success" [routerLink]="['/associate' , associate.associateId, 'view']"><i class="fa fa-eye"></i></button>
           </th>
         </tr>

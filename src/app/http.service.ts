@@ -15,6 +15,7 @@ const FIND_ASSOCIATE_URL = 'https://skills-tracker-server.herokuapp.com/associat
 const FIND_ALL_ASSOCIATES_URL = 'https://skills-tracker-server.herokuapp.com/associate/find-all-associates';
 
 const FIND_ASSOCIATE_SKILLS_URL = 'https://skills-tracker-server.herokuapp.com/associate/find-associate-skills';
+const FIND_ALL_SKILLS_COUNT_URL = 'https://skills-tracker-server.herokuapp.com/skill/find-all-skills-count';
 
 @Injectable()
 export class HttpService {
@@ -60,6 +61,10 @@ export class HttpService {
 
     getAssociateSkills(associateId: any): Observable<any> {
         return this.httpClient.post(FIND_ASSOCIATE_SKILLS_URL, associateId);
+    }
+
+    getAllSkillsCount(): Observable<any> {
+        return this.httpClient.get(FIND_ALL_SKILLS_COUNT_URL);
     }
    
 

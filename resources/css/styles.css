@@ -179,3 +179,69 @@ button {
 	background: #1d2731;
 	color: #fff;
 }
+
+.hand {
+	cursor: pointer;
+}
+
+/** dashboard */
+.dashboard-container {
+	display: flex;
+	margin: 10px 5px;
+	flex-wrap: wrap;
+	clear: both;
+}
+
+.dashboard-item {
+	flex: 1;
+	border: 1px solid #000;
+	margin: 5px;
+	padding: 2px 5px;
+	text-align: center;
+	background: #dedede;
+}
+
+.skill-count-container {
+	float: left;
+	display: block;
+    width: 100%;
+}
+
+.skill-count-item {
+	height: 100px;
+    border: 1px solid #000;
+	padding: 2px 5px;
+	display: inline-block;
+    overflow: hidden;
+	text-align: center;
+    padding: 20px 5px;
+}
+
+.vertical-text {
+	display: inline-block;
+    white-space: nowrap;
+    /* this is for "non IE" browsers that dosn't support writing-mode */
+    -webkit-transform: translate(1.1em,0) rotate(90deg);
+    -moz-transform: translate(1.1em,0) rotate(90deg);
+	-o-transform: translate(1.1em,0) rotate(90deg);
+    transform: translate(1.1em,0) rotate(90deg);
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    transform-origin: 0 0;
+   
+   /* IE9+ */
+   -ms-transform: none;
+   -ms-transform-origin: none;
+   
+   /* IE8+ */
+   -ms-writing-mode: tb-rl;
+   
+   /* IE7 and below */
+   *writing-mode: tb-rl;
+}
+.vertical-text:before {
+    content: "";
+    float: left;
+    margin-top: 100%;
+}

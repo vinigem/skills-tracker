@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { HttpService } from '../http.service';
 import { AlertService } from '../alert/alert.service';
@@ -17,7 +17,7 @@ export class AssociateComponent implements OnInit, OnDestroy {
   sub: any;
 
   constructor(private fb: FormBuilder, private httpService: HttpService,
-    private alertService: AlertService, private route: ActivatedRoute) { }
+    private alertService: AlertService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.loadSkills();
@@ -35,17 +35,18 @@ export class AssociateComponent implements OnInit, OnDestroy {
 
   initForm() {
     this.associateForm = this.fb.group({
-      'name': [ { value: null, disabled: this.viewOnly }, Validators.required ],
-      'associateId': [ { value: null, disabled: this.viewOnly }, Validators.required ],
-      'email': [ { value: null, disabled: this.viewOnly }, [ Validators.required, Validators.email ] ],
-      'mobile': [ { value: null, disabled: this.viewOnly }, Validators.required ],
-      'gender': [ { value: null, disabled: this.viewOnly }, Validators.required ],
-      'pic': [ { value: null, disabled: this.viewOnly } ],
-      'status': [ { value: null, disabled: this.viewOnly }, Validators.required ],
-      'level': [ { value: null, disabled: this.viewOnly }, Validators.required ],
-      'remarks': [ { value: null, disabled: this.viewOnly } ],
-      'strength': [ { value: null, disabled: this.viewOnly }, Validators.required ],
-      'weakness': [ { value: null, disabled: this.viewOnly }, Validators.required ]
+      'id': [ null ],
+      'name': [ null, Validators.required ],
+      'associateId': [ null, Validators.required ],
+      'email': [ null, [ Validators.required, Validators.email ] ],
+      'mobile': [ null, Validators.required ],
+      'gender': [ null, Validators.required ],
+      'pic': [ null ],
+      'status': [ null, Validators.required ],
+      'level': [ null, Validators.required ],
+      'remarks': [ null ],
+      'strength': [ null, Validators.required ],
+      'weakness': [ null, Validators.required ]
     });
   }
 
@@ -60,8 +61,9 @@ export class AssociateComponent implements OnInit, OnDestroy {
   saveAssociate() {
     let associateSkills = new Array<any>();
     this.associateSkills.forEach((skill: any) => {
-      if(skill.value > 0) {
+      if(skill.value > 0 || skill.id != null) {
         associateSkills.push({
+          id: skill.id,
           associateId: this.associateForm.value.associateId,
           skillId: skill.skillId,
           value: skill.value
@@ -76,7 +78,7 @@ export class AssociateComponent implements OnInit, OnDestroy {
       .subscribe((status: string) => {
         if(status == 'Success') {
           this.alertService.addAlert('Associate added successfully..!!', 'success');
-          this.reset();
+          this.router.navigate(['dashboard']);
           
         } else if(status == 'Exist') {
           this.alertService.addAlert('Associate already exists..!!', 'error');
@@ -119,7 +121,7 @@ export class AssociateComponent implements OnInit, OnDestroy {
     this.associateSkills = new Array<any>();
     this.httpService.getAllSkills().subscribe((skills: Array<any>) => {
       skills.forEach((skill: any) => {
-        this.associateSkills.push({skillId: skill.skillId, skillName: skill.skillName, value: 0});
+        this.associateSkills.push({id: null, skillId: skill.skillId, skillName: skill.skillName, value: 0});
       });
     });
   }
@@ -127,6 +129,7 @@ export class AssociateComponent implements OnInit, OnDestroy {
   loadAssociate(associateId: any) {
     this.httpService.getAssociate(associateId).subscribe((associate: any) => {
       this.associateForm.setValue({
+        'id': associate.id,
         'name': associate.name,
         'associateId': associate.associateId,
         'email': associate.email,
@@ -139,7 +142,10 @@ export class AssociateComponent implements OnInit, OnDestroy {
         'strength': associate.strength,
         'weakness': associate.weakness
       });
-      this.localUrl = associate.pic;
+
+      if(associate.pic != null) {
+        this.localUrl = associate.pic;        
+      }
     });  
   }
 
@@ -148,7 +154,8 @@ export class AssociateComponent implements OnInit, OnDestroy {
       associateSkills.forEach((skill: any) => {
         this.associateSkills.forEach((associateSkill: any) => {
           if(skill.skillId == associateSkill.skillId) {
-            associateSkill.value = skill.value;  
+            associateSkill.value = skill.value;
+            associateSkill.id = skill.id;  
           }  
         });
       });
