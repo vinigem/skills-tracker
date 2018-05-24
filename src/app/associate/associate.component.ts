@@ -26,7 +26,7 @@ export class AssociateComponent implements OnInit, OnDestroy {
     this.sub = this.route.params.subscribe(params => {
       let associateId = +params['associateId']; // (+) converts string 'id' to a number
       this.viewOnly = params['action'] != null;
-      this.edit = associateId != null && !this.viewOnly;
+      this.edit = params['associateId'] != null && !this.viewOnly;
 
       if(associateId != null) {
         this.loadAssociate(associateId);
