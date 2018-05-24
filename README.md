@@ -1,6 +1,7 @@
 # Installation and Runnig the application
 ```
 npm install
+npm run build
 npm start
 open http://localhost:5000 in browser
 ```
