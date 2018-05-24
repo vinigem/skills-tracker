@@ -9,7 +9,7 @@ open http://localhost:5000 in browser
 # SkillsTracker
 ```
 1.	Dashboard
-2.	Add Associate
+2.	Add / Edit / View Associate
 3.	Add Skills
 ```
 
@@ -29,9 +29,9 @@ j. Search By String Skills - Search an associate by strong skills
 
 ```
 
-## Add Associate
+## Add / Edit / View Associate
 ```
-It allows to add new associate to be created with below fields.
+It allows to add / edit / view new associate to be created with below fields.
 a. Name - Name of the associate
 b. Associate ID - Unique Associate ID
 c. Email ID - Unique Associate Email Id
