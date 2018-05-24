@@ -219,22 +219,17 @@ button {
 }
 
 .vertical-text {
-	display: inline-block;
-    white-space: nowrap;
+	white-space: nowrap;
+	width: 100px;
+    text-align: left;
     /* this is for "non IE" browsers that dosn't support writing-mode */
     -webkit-transform: translate(1.1em,0) rotate(-90deg);
     -moz-transform: translate(1.1em,0) rotate(-90deg);
 	-o-transform: translate(1.1em,0) rotate(-90deg);
     transform: translate(1.1em,0) rotate(-90deg);
     
-   /* IE9+ */
-   -ms-transform: none;
-   
-   /* IE8+ */
-   -ms-writing-mode: tb-rl;
-   
-   /* IE7 and below */
-   *writing-mode: tb-rl;
+   	/* IE9+ */
+   	-ms-transform: translate(1.1em, 0px) rotate(-90deg);
 }
 
 .vertical-text:before {
