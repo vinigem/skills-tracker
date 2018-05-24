@@ -224,10 +224,10 @@ button {
 	display: inline-block;
     white-space: nowrap;
     /* this is for "non IE" browsers that dosn't support writing-mode */
-    -webkit-transform: translate(1.1em,0) rotate(-90deg);
-    -moz-transform: translate(1.1em,0) rotate(-90deg);
-	-o-transform: translate(1.1em,0) rotate(-90deg);
-    transform: translate(1.1em,0) rotate(-90deg);
+    -webkit-transform: translate(1.1em,0) rotate(90deg);
+    -moz-transform: translate(1.1em,0) rotate(90deg);
+	-o-transform: translate(1.1em,0) rotate(90deg);
+    transform: translate(1.1em,0) rotate(90deg);
     -webkit-transform-origin: 0 0;
     -moz-transform-origin: 0 0;
     -o-transform-origin: 0 0;
