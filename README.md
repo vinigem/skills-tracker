@@ -31,7 +31,7 @@ j. Search By String Skills - Search an associate by strong skills
 
 ## Add / Edit / View Associate
 ```
-It allows to add / edit / view new associate to be created with below fields.
+It allows to add / edit / view associate with below fields.
 a. Name - Name of the associate
 b. Associate ID - Unique Associate ID
 c. Email ID - Unique Associate Email Id
