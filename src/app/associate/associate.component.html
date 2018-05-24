@@ -1,6 +1,8 @@
 <div class="">
-    <h2 class="text-center">Add New Associate</h2>
-
+    <h2 class="text-center" *ngIf="!edit && !viewOnly">Add New Associate</h2>
+    <h2 class="text-center" *ngIf="edit">Update Associate</h2>
+    <h2 class="text-center" *ngIf="viewOnly">View Associate</h2>
+    
     <form [formGroup]="associateForm" (ngSubmit)="saveAssociate()">
       <div class="form-inline row form-group">
         <div class="col-xs-12 col-sm-12">  
