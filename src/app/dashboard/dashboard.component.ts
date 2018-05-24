@@ -76,8 +76,22 @@ export class DashboardComponent implements OnInit {
         total += skillsCount[key];
       }
 
+      this.skillsCount.sort((a, b) => b.count - a.count); // sort in descending order
+      
+      // to show only 10 skill blocks, 10th will be combiation of rest of skills count
+      if(this.skillsCount.length > 10) {
+        let otherSkillsCount = 0;
+        
+        this.skillsCount.slice(9).forEach(skillCount => {
+          otherSkillsCount += skillCount.count;
+        });
+
+        this.skillsCount = this.skillsCount.slice(0, 9);
+        this.skillsCount.push({ 'name': 'Others', 'count': otherSkillsCount });
+      }
+      
       this.skillsCount.forEach(skillCount => {
-        skillCount.count = ((skillCount.count / total) * 100).toFixed(2);  
+        skillCount.count = (skillCount.count / total) * 100;  
       })
     
     });  

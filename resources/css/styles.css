@@ -4,6 +4,7 @@ html, body {
 	height: 100%;
 	background: #8fa6b7;
 	color: #000;
+	font-size: 13px;
 }
 
 th, td {
@@ -184,17 +185,18 @@ button {
 	cursor: pointer;
 }
 
-/** dashboard */
+/** Start: dashboard */
 .dashboard-container {
 	display: flex;
 	margin: 10px 5px;
 	flex-wrap: wrap;
 	clear: both;
+	font-weight: 600;
 }
 
 .dashboard-item {
 	flex: 1;
-	border: 1px solid #000;
+	border: 1px solid #ddd;
 	margin: 5px;
 	padding: 2px 5px;
 	text-align: center;
@@ -205,11 +207,12 @@ button {
 	float: left;
 	display: block;
     width: 100%;
+	font-weight: 600;
 }
 
 .skill-count-item {
 	height: 100px;
-    border: 1px solid #000;
+    border: 1px solid #ddd;
 	padding: 2px 5px;
 	display: inline-block;
     overflow: hidden;
@@ -245,3 +248,5 @@ button {
     float: left;
     margin-top: 100%;
 }
+
+/** End: dashboard */
