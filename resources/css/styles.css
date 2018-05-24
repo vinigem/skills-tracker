@@ -236,6 +236,7 @@ button {
    /* IE7 and below */
    *writing-mode: tb-rl;
 }
+
 .vertical-text:before {
     content: "";
     float: left;
