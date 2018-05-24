@@ -49,3 +49,6 @@ j. Skills - Skills ratings
 a. It allows add new Skill
 b. Existing skills can be edited or deleted
 ```
+
+## Demo
+https://skills-tracker-view.herokuapp.com
