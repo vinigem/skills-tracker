@@ -211,31 +211,31 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 .skill-count-container {
-	float: left;
-	display: block;
+	  float: left;
+    display: block;
     width: 100%;
-	font-weight: 600;
+    font-weight: 600;
+    padding: 0;
+    height: 100px;
 }
 
 .skill-count-item {
-	height: 100px;
+	  height: 100%;
     border: 1px solid #ddd;
-	display: inline-block;
     text-align: center;
-    padding: 20px 0;
+	  display: inline-block;
 }
 
 .vertical-text {
-	max-width: 100px;
-    text-align: left;
-    /* this is for "non IE" browsers that dosn't support writing-mode */
-    -webkit-transform: translate(1.1em,0) rotate(-90deg);
-    -moz-transform: translate(1.1em,0) rotate(-90deg);
-	-o-transform: translate(1.1em,0) rotate(-90deg);
-    transform: translate(1.1em,0) rotate(-90deg);
+	  /* this is for "non IE" browsers that dosn't support writing-mode */
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+	  -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
     
    	/* IE9+ */
-   	-ms-transform: translate(1.1em, 0px) rotate(-90deg);
+   	-ms-transform: rotate(-90deg);
+    margin: 50px 0;
 }
 
 /** End: dashboard */
