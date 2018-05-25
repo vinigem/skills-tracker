@@ -2,7 +2,8 @@
   <h2 class="text-center">Search Associate</h2>
 
   <div class="skill-count-container">
-    <div class="skill-count-item" *ngFor="let skillCount of skillsCount" [style.width.%]="skillCount.count" [style.background]="getRandomColor()" >
+    <div class="skill-count-item" *ngFor="let skillCount of skillsCount; let idx = index;"
+      [style.width.%]="skillCount.count" [style.background]="colors[idx]" >
       <div class="vertical-text">{{ skillCount.name }}</div>
     </div>
   </div>

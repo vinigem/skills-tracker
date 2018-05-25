@@ -12,11 +12,14 @@ export class DashboardComponent implements OnInit {
   associates: Array<any>;
   filteredAssociates: Array<any>;
   skillsCount: Array<any>;
+  
   dashboardData = {
     registeredAssociates: '', femaleAssociates: '', maleAssociates: '',
     l1Associates: '', l2Associates: '', l3Associates: '', fresherAssociates: 0,
     ratedAssociates: 0, ratedFemaleAssociates: 0, ratedMaleAssociates: 0 
   };
+
+  colors = ['#E74C3C', '#9B59B6', '#2980B9', '#1ABC9C', '#27AE60', '#F39C12', '#F1C40F', '#D35400', '#3498DB', '#7B7D7D'];
  
 
   constructor(private httpService: HttpService, private alertService: AlertService) { }

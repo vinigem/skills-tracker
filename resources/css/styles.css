@@ -226,8 +226,7 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 }
 
 .vertical-text {
-	white-space: nowrap;
-	width: 100px;
+	max-width: 100px;
     text-align: left;
     /* this is for "non IE" browsers that dosn't support writing-mode */
     -webkit-transform: translate(1.1em,0) rotate(-90deg);
@@ -237,12 +236,6 @@ input[type=range]:focus::-webkit-slider-runnable-track {
     
    	/* IE9+ */
    	-ms-transform: translate(1.1em, 0px) rotate(-90deg);
-}
-
-.vertical-text:before {
-    content: "";
-    float: left;
-    margin-top: 100%;
 }
 
 /** End: dashboard */
