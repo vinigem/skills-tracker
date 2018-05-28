@@ -80,7 +80,7 @@
           <th>
             <div class="status-thumb" [class.status-green]="associate.status == 'G'"
               [class.status-blue]="associate.status == 'B'" [class.status-red]="associate.status == 'R'" ></div> </th>
-          <th>{{ associate.name }}</th>
+          <th><a href="" [routerLink]="['/associate' , associate.associateId, 'view']"> {{ associate.name }}</a></th>
           <th>{{ associate.associateId }}</th>
           <th>{{ associate.email }}</th>
           <th>{{ associate.mobile }}</th>
